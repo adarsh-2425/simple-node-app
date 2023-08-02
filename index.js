@@ -11,6 +11,10 @@ connectDb();
 //express.json() middleware
 app.use(express.json());
 
+//pug middleware
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 //booksroute
 app.use('/books', bookRoutes);
 
