@@ -30,6 +30,40 @@ router.post('/add', async (req, res) => {
   }
 });
 
+//update books
+router.put('/update/:id', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+
+    if (!book) {
+      res.status(404).send('No book found');
+    }
+
+    book.title = req.body.title,
+    book.author = req.body.author,
+    book.genre = req.body.genre,
+    book.published_year = req.body.published_year
+
+    await book.save();
+    res.status(200).send('Books Updated')
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send("Cannot update books");
+  }
+});
+
+//delete books
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const book_id = req.params.id;
+    await Book.deleteOne({_id: book_id});
+    res.status(200).send("Book successfully removed");
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send("Cannot delete book right now");
+  }
+});
+
 module.exports = router;
 
 
