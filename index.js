@@ -10,6 +10,7 @@ connectDb();
 
 //express.json() middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //pug middleware
 app.set('views', path.join(__dirname, 'views'));

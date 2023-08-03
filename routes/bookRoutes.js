@@ -14,6 +14,11 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route to render the "Add Book" page with the form
+router.get('/add', (req, res) => {
+  res.render('addbook') // Render the addbook.pug template
+});
+
 //add book
 router.post('/add', async (req, res) => {
   try {
@@ -24,8 +29,9 @@ router.post('/add', async (req, res) => {
       published_year: req.body.published_year
     });
 
-    await newBook.save({ wtimeout: 30000 });
-    res.status(200).json('Book added successfully');
+    await newBook.save();
+    //res.status(200).json('Book added successfully');
+    res.redirect("https://siennastupendousupgrades.adarsh-2425.repl.co/books");
   } catch (err) {
     res.status(500).send(`error is ${err.message}`);
   }
