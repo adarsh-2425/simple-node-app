@@ -31,7 +31,7 @@ router.post('/add', async (req, res) => {
 
     await newBook.save();
     //res.status(200).json('Book added successfully');
-    res.redirect("https://siennastupendousupgrades.adarsh-2425.repl.co/books");
+    res.redirect("/books");
   } catch (err) {
     res.status(500).send(`error is ${err.message}`);
   }
@@ -69,7 +69,7 @@ router.post('/update/:id', async (req, res) => {
 
     //save the updated book
     await book.save();
-            res.redirect("https://siennastupendousupgrades.adarsh-2425.repl.co/books");
+            res.redirect("/books");
   } catch(err) {
     console.error(err.message);
     res.status(500).send("Cannot update books");

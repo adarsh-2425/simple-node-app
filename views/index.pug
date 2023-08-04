@@ -10,12 +10,12 @@ html
           li
             span #{book.title} - #{book.author} (Genre: #{book.genre}, Published Year: #{book.published_year}, Book Id: #{book._id})
             // Update book
-            a(href=`https://siennastupendousupgrades.adarsh-2425.repl.co/books/update/${book._id}`) Update
+            a(href=`/books/update/${book._id}`) Update
             // Delete book
-            form(action=`https://siennastupendousupgrades.adarsh-2425.repl.co/books/delete/${book._id}?_method=DELETE`, method="post")
+            form(action=`/books/delete/${book._id}?_method=DELETE`, method="post")
               button(type="submit") Delete
     else
       p No books available.
     
     // Anchor link to the Add Book Page
-    a(href="https://siennastupendousupgrades.adarsh-2425.repl.co/books/add") Add Book
+    a(href="/books/add") Add Book

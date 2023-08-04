@@ -4,7 +4,7 @@ html
     title Update Book
   body
     h1 Update Book
-    form(action=`https://siennastupendousupgrades.adarsh-2425.repl.co/books/update/${book._id}`, method="post")
+    form(action=`/books/update/${book._id}`, method="post")
       input(type="hidden", name="_method", value="PUT")
       table
         tr
