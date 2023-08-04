@@ -7,18 +7,18 @@ This is a basic Node.js application that demonstrates CRUD (Create, Read, Update
 Before running the app, ensure you have the following installed:
 
 - Node.js (https://nodejs.org)
-- MongoDB (https://www.mongodb.com)
+- MongoDB (https://www.mongodb.com). MongoDB Atlas is also fine. This project uses MongoDB Atlas.
 
 ## Installation
 
 1. Clone this repository:
 
-git clone https://github.com/yourusername/your-node-crud-app.git
+git clone https://github.com/adarsh-2425/simple-node-app.git
 
 
 2. Change into the project directory:
 
-cd your-node-crud-app
+cd simple-node-app
 
 
 3. Install dependencies:
@@ -36,10 +36,11 @@ npm install
    //example
    // Anchor link to the Add Book Page
     a(href="https://siennastupendousupgrades.adarsh-2425.repl.co/books/add") Add Book
-as
+to
+```pug
 // Anchor link to the Add Book Page
     a(href="http://localhost:3000/books/add") Add Book
-
+```
 
 
 ## Usage
@@ -49,7 +50,7 @@ To start the server, run:
 npm start
 
 
-Visit `http://localhost:3000` in your browser to access the app.
+Visit `http://localhost:3000` or your hosted address in your browser to access the app.
 
 ## Functionality
 
