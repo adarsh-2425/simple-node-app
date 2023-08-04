@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
 const connectDb = require('./db.js');
 
 const bookRoutes = require('./routes/bookRoutes')
@@ -11,6 +12,9 @@ connectDb();
 //express.json() middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Set up method-override middleware
+app.use(methodOverride('_method'));
 
 //pug middleware
 app.set('views', path.join(__dirname, 'views'));

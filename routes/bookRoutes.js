@@ -37,22 +37,39 @@ router.post('/add', async (req, res) => {
   }
 });
 
+//Route to fetch the book and render the updatebook pug template
+router.get('/update/:id', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+
+    res.render('updatebook', { book });
+    
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Cannot update books right now')
+  }
+});
+
 //update books
-router.put('/update/:id', async (req, res) => {
+router.post('/update/:id', async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
 
-    if (!book) {
-      res.status(404).send('No book found');
-    }
+    // Use object destructuring to extract properties from req.body
+    const { title, author, genre, published_year } = req.body;
 
-    book.title = req.body.title,
-    book.author = req.body.author,
-    book.genre = req.body.genre,
-    book.published_year = req.body.published_year
+    // Update the book's properties
+    book.title = title;
+    book.author = author;
+    book.genre = genre;
+    book.published_year = published_year;
 
+    //save the updated book
     await book.save();
-    res.status(200).send('Books Updated')
+            res.redirect("https://siennastupendousupgrades.adarsh-2425.repl.co/books");
   } catch(err) {
     console.error(err.message);
     res.status(500).send("Cannot update books");
