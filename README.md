@@ -26,23 +26,6 @@ cd simple-node-app
 npm install 
 
 
-## Configuration
-
-1. **Update Server Address:**
-
-   The server address is currently set to a replit hosting address, which may not work if you are hosting the app on 'http://localhost:3000'. Ensure you update the server address in `index.js` to match your localhost address or replit address.
-
-   ```pug
-   //example
-   // Anchor link to the Add Book Page
-    a(href="https://siennastupendousupgrades.adarsh-2425.repl.co/books/add") Add Book
-to
-```pug
-// Anchor link to the Add Book Page
-    a(href="http://localhost:3000/books/add") Add Book
-```
-
-
 ## Usage
 
 To start the server, run:
